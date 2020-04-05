@@ -4,10 +4,15 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def login():
-    name = request.args.get('name')
-    password = request.args.get('password')
+    #name = request.args.get('name')
+    #password = request.args.get('password')
+	
+    name = request.form['name']
+    password = request.form['password']
+	
+	
     if name and password:
         return render_template('chat.html', name = name, password = password)
     else:
