@@ -31,6 +31,31 @@ def chat():
     else:
         return redirect(url_for('regisztracio2'))
 
+@app.route('/message', methods=['GET', 'POST'])
+def meassage():
+	if (request.method == 'POST'):
+		actMessage = request.form['message']
+		print(actMessage)
+		massages.append(actMessage)
 		
+		if len(messages) > limit:
+			print(f"message num over limit: {len(messages)}")
+		
+		render_template(app.py)		
+
 if __name__ == "__main__":
 	app.run(debug = True)
+	login()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
